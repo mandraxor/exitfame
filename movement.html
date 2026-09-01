@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Movement &amp; Story — Exit Fame | Never Go Back (NGB)</title>
+  <meta name="description" content="Discover the story of Eric Henderson (Exit Fame). From Roxbury and Dorchester roots to Rikers Island rehabilitation, certified recovery coaching, and 6+ years active sobriety.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Shopify SDK -->
+  <script src="https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.js"></script>
+</head>
+<body class="dark-theme">
+
+  <!-- Ambient Golden Ember Canvas Engine -->
+  <canvas id="ember-canvas"></canvas>
+  <div class="cursor-spotlight"></div>
+
+  <!-- Ambient Lighting Background Orbs -->
+  <div class="ambient-glow-bg">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <div class="grain-overlay"></div>
+
+  <!-- Main Header / Unified Navigation -->
+  <header class="main-header" id="navbar">
+    <div class="header-container">
+      <div class="brand-logo-img-wrapper">
+        <a href="index.html" class="brand-link" aria-label="Exit Fame Home">
+          <img src="exit fame logo.png" alt="Exit Fame Logo" class="nav-logo">
+        </a>
+      </div>
+
+      <nav class="nav-links" id="nav-menu">
+        <a href="index.html" class="nav-link"><span>00</span>Home</a>
+        <a href="music.html" class="nav-link"><span>01</span>Music</a>
+        <a href="movement.html" class="nav-link active" aria-current="page"><span>02</span>The Movement</a>
+        <a href="tour.html" class="nav-link"><span>03</span>Tour</a>
+        <a href="merch.html" class="nav-link"><span>04</span>Merch</a>
+        <a href="press.html" class="nav-link"><span>05</span>Press</a>
+        <a href="booking.html" class="nav-cta-btn">Book Now</a>
+        <button class="nav-link" onclick="openCart()" style="display:flex; align-items:center; gap:0.4rem; color:var(--accent-gold); font-weight:700;">
+          <span>🛍️</span> Bag
+        </button>
+      </nav>
+
+      <div class="header-actions-mobile">
+        <button class="mobile-nav-toggle" id="mobile-nav-btn" aria-label="Toggle Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-inner">
+      <div class="mobile-brand">
+        <img src="exit fame logo.png" alt="Exit Fame Logo" class="mobile-logo">
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="index.html" class="mobile-link"><span class="m-num">00</span> Home Portal</a>
+        <a href="music.html" class="mobile-link"><span class="m-num">01</span> Sound &amp; Vision</a>
+        <a href="movement.html" class="mobile-link active"><span class="m-num">02</span> The Movement</a>
+        <a href="tour.html" class="mobile-link"><span class="m-num">03</span> Tour Circuit</a>
+        <a href="merch.html" class="mobile-link"><span class="m-num">04</span> NGB Merch</a>
+        <a href="press.html" class="mobile-link"><span class="m-num">05</span> Press &amp; Awards</a>
+        <a href="booking.html" class="mobile-link cta-link"><span class="m-num">06</span> Direct Booking</a>
+      </nav>
+      <div class="mobile-drawer-footer">
+        <button class="btn btn-primary btn-block btn-sm" onclick="openCart(); document.getElementById('mobile-drawer').classList.remove('open');">
+          🛍️ View Shopping Bag
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Hero Header -->
+  <section class="page-hero">
+    <div class="page-hero-bg" style="background-image: url('general images/29002.jpg');"></div>
+    <div class="page-hero-container">
+      <div class="page-breadcrumb">
+        <a href="index.html">EXIT FAME</a>
+        <span>/</span>
+        <span>02 // THE MOVEMENT</span>
+      </div>
+      <h1 class="page-hero-title">The <span>Movement</span></h1>
+      <p class="page-hero-subtitle">"Exit is not a stage name — it's a declaration." The real journey of Eric Henderson from Boston streets to recovery leadership.</p>
+    </div>
+  </section>
+
+  <!-- Movement Main Layout -->
+  <main class="section-container">
+    <div class="story-layout">
+      
+      <!-- Interactive Vertical Timeline -->
+      <div class="movement-timeline-wrapper reveal">
+        <div class="timeline-tree">
+          
+          <!-- Node 1: 2019 -->
+          <div class="timeline-node">
+            <div class="timeline-marker">
+              <span class="t-year">2019</span>
+            </div>
+            <div class="timeline-card glass-card tilt-card">
+              <span class="t-badge badge-crimson">THE DECLARATION</span>
+              <h4>Shedding "Fame Flynt" &amp; Choosing Sobriety</h4>
+              <p>Born Eric Henderson in Boston, raised with deep roots in Roxbury and Dorchester. Known formerly as <em>"Fame Flynt"</em>, the pivotal turning point came in 2019 following the loss of his father. Eric made a life-defining choice: exit street lifestyle, drop hollow recognition, and enter active sobriety. He declared himself <strong>Exit Fame</strong>—turning survival into sound.</p>
+            </div>
+          </div>
+
+          <!-- Node 2: 2020-2022 -->
+          <div class="timeline-node">
+            <div class="timeline-marker">
+              <span class="t-year">2021</span>
+            </div>
+            <div class="timeline-card glass-card tilt-card">
+              <span class="t-badge badge-gold">THE FRONTLINES</span>
+              <h4>Rikers Island &amp; Certified Recovery Coaching</h4>
+              <p>Direct outreach in rehabilitation facilities, sober living programs, and correctional institutions. Exit took his authentic hip-hop testimony directly into <strong>Rikers Island</strong>, proving that vulnerable, conscious storytelling breaks cycles of recidivism and addiction.</p>
+            </div>
+          </div>
+
+          <!-- Node 3: 2023 -->
+          <div class="timeline-node">
+            <div class="timeline-marker">
+              <span class="t-year">2023</span>
+            </div>
+            <div class="timeline-card glass-card tilt-card">
+              <span class="t-badge badge-crimson">YOUTH IMPACT</span>
+              <h4>High School &amp; College Assemblies</h4>
+              <p>Commanding rooms of 800 to 1,000 students across New England high schools and college auditoriums. Exit bridges the raw energy of urban music with actionable recovery and mental health empowerment.</p>
+            </div>
+          </div>
+
+          <!-- Node 4: 2024 -->
+          <div class="timeline-node">
+            <div class="timeline-marker">
+              <span class="t-year">2024</span>
+            </div>
+            <div class="timeline-card glass-card tilt-card">
+              <span class="t-badge badge-gold">CRITICAL ACCLAIM</span>
+              <h4>Boston Music Awards Triumph</h4>
+              <p>Recognized as <strong>New Hip-Hop Artist of the Year</strong> at the Boston Music Awards and Mega Awards. "Last Shall Be First" solidifies Exit as a dominant, conscious force in East Coast rap.</p>
+            </div>
+          </div>
+
+          <!-- Node 5: 2026 -->
+          <div class="timeline-node">
+            <div class="timeline-marker">
+              <span class="t-year">2026</span>
+            </div>
+            <div class="timeline-card glass-card tilt-card">
+              <span class="t-badge badge-crimson">GLOBAL EXPANSION</span>
+              <h4>6+ Years Active Sobriety &amp; Onyx World Tour</h4>
+              <p>Reaching over 6 consecutive years of verified sobriety. Released <em>Permanent Stains</em> (debuting at #7 on Apple iTunes Hip-Hop) and joined hip-hop legends <strong>Onyx, Busta Rhymes, and KRS-One</strong> across 11 countries on the <em>"Shut 'Em Down"</em> International Tour.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Sidebar: Editorial Quote & Movement Pillars -->
+      <div class="story-sidebar reveal">
+        
+        <!-- BMA Quote Card -->
+        <div class="editorial-quote-card glass-card tilt-card">
+          <div class="quote-mark-svg">“</div>
+          <p class="quote-text">Exit doesn't just make music — he makes movements. Every verse is an authentic blueprint for getting out.</p>
+          <div class="quote-author">
+            <span class="author-name">Boston Music Awards Committee</span>
+            <span class="author-title">Critical Editorial Endorsement · 2024 / 2025</span>
+          </div>
+        </div>
+        
+        <!-- Bio Specs & Pillars -->
+        <div class="bio-quick-specs glass-card tilt-card">
+          <div class="spec-row">
+            <span class="spec-label">LEADERSHIP</span>
+            <span class="spec-val">Eric Henderson (Exit Fame)</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">SOBRIETY STATUS</span>
+            <span class="spec-val highlight-gold">6+ Years Active (Est. 2019)</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">ORIGIN &amp; ROOTS</span>
+            <span class="spec-val">Boston, MA · Roxbury / Dorchester</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">MOVEMENT</span>
+            <span class="spec-val">Never Go Back (NGB)</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">GENRE</span>
+            <span class="spec-val">Conscious Rap / Street Gospel</span>
+          </div>
+
+          <div class="spec-label-header">CORE OUTREACH INITIATIVES</div>
+          <div class="pillar-mini-grid">
+            <div class="pillar-chip">
+              <span class="p-icon">⚖️</span>
+              <span>Rikers Island Outreach Programs</span>
+            </div>
+            <div class="pillar-chip">
+              <span class="p-icon">🏥</span>
+              <span>Certified Recovery Coaching</span>
+            </div>
+            <div class="pillar-chip">
+              <span class="p-icon">🏫</span>
+              <span>High School &amp; University Assemblies</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.75rem;">
+            <a href="booking.html" class="btn btn-primary btn-block btn-sm">Book Speaking &amp; Recovery Outreach</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Comprehensive 5-Column EPK Footer Hub -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-columns-grid">
+        <div class="footer-col brand-col">
+          <img src="exit fame logo.png" alt="Exit Fame Logo" class="footer-logo">
+          <p class="footer-statement">"Built Here. Built Different."</p>
+          <p class="footer-bio-snippet">Boston conscious hip-hop artist &amp; certified recovery advocate Eric Henderson. Turning survival into sound across international stages.</p>
+        </div>
+
+        <div class="footer-col">
+          <h5 class="f-title">NAVIGATION</h5>
+          <ul class="f-links">
+            <li><a href="index.html">00 // Home Portal</a></li>
+            <li><a href="music.html">01 // Music &amp; Vision</a></li>
+            <li><a href="movement.html">02 // The Movement</a></li>
+            <li><a href="tour.html">03 // Tour Circuit</a></li>
+            <li><a href="merch.html">04 // NGB Apparel</a></li>
+            <li><a href="press.html">05 // Press &amp; Awards</a></li>
+            <li><a href="booking.html">06 // Booking</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 class="f-title">STREAMING &amp; DSPs</h5>
+          <ul class="f-links">
+            <li><a href="https://open.spotify.com/artist/57qWHGzvGUTqCqvIQHj8eu" target="_blank" rel="noopener noreferrer">Spotify Official</a></li>
+            <li><a href="https://music.apple.com/us/artist/exitfame/1560749867" target="_blank" rel="noopener noreferrer">Apple Music</a></li>
+            <li><a href="https://soundcloud.com/exitfame" target="_blank" rel="noopener noreferrer">SoundCloud</a></li>
+            <li><a href="https://www.youtube.com/@EXITFAME" target="_blank" rel="noopener noreferrer">YouTube Channel</a></li>
+            <li><a href="https://linktr.ee/exitfame" target="_blank" rel="noopener noreferrer">Linktree Hub</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 class="f-title">OFFICIAL CONTACTS</h5>
+          <div class="f-contact-block">
+            <span class="fc-label">MANAGEMENT:</span>
+            <a href="mailto:exitfamemgmt@pm.me" class="fc-val">exitfamemgmt@pm.me</a>
+          </div>
+          <div class="f-contact-block">
+            <span class="fc-label">BOOKING:</span>
+            <a href="mailto:exitfamemgmt@gmail.com" class="fc-val">exitfamemgmt@gmail.com</a>
+          </div>
+          <div class="f-contact-block">
+            <span class="fc-label">HEADQUARTERS:</span>
+            <span class="fc-val">Boston, MA · United States</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5 class="f-title">VERIFIED SOCIALS</h5>
+          <div class="footer-socials-grid">
+            <a href="https://www.instagram.com/exit_fame/" target="_blank" rel="noopener noreferrer" title="Instagram" class="social-icon-btn">
+              <svg viewBox="0 0 24 24" class="social-svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" fill="currentColor"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100068135989438" target="_blank" rel="noopener noreferrer" title="Facebook" class="social-icon-btn">
+              <svg viewBox="0 0 24 24" class="social-svg"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3v3h-3v6.8c4.56-.93 8-4.96 8-9.8z" fill="currentColor"/></svg>
+            </a>
+            <a href="https://x.com/EXIT_FAME" target="_blank" rel="noopener noreferrer" title="Twitter / X" class="social-icon-btn">
+              <svg viewBox="0 0 24 24" class="social-svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@EXITFAME" target="_blank" rel="noopener noreferrer" title="YouTube" class="social-icon-btn">
+              <svg viewBox="0 0 24 24" class="social-svg"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="currentColor"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-strip">
+        <p class="f-copy">&copy; 2026 Exit Fame (Eric Henderson). All Rights Reserved.</p>
+        <p class="f-sub">Never Go Back (NGB) Movement · Boston, MA</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PERSISTENT DOCKED BOTTOM AUDIO PLAYER BAR WITH VISUALIZER -->
+  <aside class="persistent-audio-dock" id="persistent-player-dock" aria-label="Persistent Audio Player">
+    <div class="dock-container">
+      <div class="dock-meta">
+        <div class="dock-art-wrap">
+          <img src="charts/IMG_1091.PNG" alt="Track Artwork" id="dock-album-art" class="dock-art">
+          <div class="dock-vinyl" id="dock-vinyl-disc"></div>
+        </div>
+        <div class="dock-info">
+          <span class="dock-title" id="dock-track-title">Too Many Times (Remix) [feat. Millyz]</span>
+          <span class="dock-artist">Exit Fame · <span class="dock-badge-tag" id="dock-track-tag">Boston Crossover Hit</span></span>
+        </div>
+      </div>
+
+      <div class="dock-controls-center">
+        <div class="dock-btns">
+          <button class="dock-btn-icon" id="dock-btn-prev" aria-label="Previous Track">
+            <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z" fill="currentColor"/></svg>
+          </button>
+          
+          <button class="dock-play-btn" id="dock-btn-play" aria-label="Play / Pause">
+            <svg viewBox="0 0 24 24" id="dock-play-svg"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 24 24" id="dock-pause-svg" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" fill="currentColor"/></svg>
+          </button>
+          
+          <button class="dock-btn-icon" id="dock-btn-next" aria-label="Next Track">
+            <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" fill="currentColor"/></svg>
+          </button>
+        </div>
+
+        <div class="dock-scrubber-row">
+          <span class="dock-time" id="dock-time-elapsed">0:00</span>
+          <div class="dock-progress-track" id="dock-progress-track">
+            <div class="dock-progress-fill" id="dock-progress-fill"></div>
+            <div class="dock-progress-handle" id="dock-progress-handle"></div>
+          </div>
+          <span class="dock-time" id="dock-time-total">3:58</span>
+        </div>
+      </div>
+
+      <div class="dock-actions-right">
+        <div class="player-visualizer-wrap">
+          <canvas id="player-visualizer" class="visualizer-canvas" width="100" height="28"></canvas>
+        </div>
+        <button class="dock-dsp-btn" onclick="openCart()" title="View Bag">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2"/><path d="M16 10a4 4 0 0 1-8 0" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

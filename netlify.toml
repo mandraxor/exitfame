@@ -1,6 +1,38 @@
 [build]
-  publish = "artist-site"
+  publish = "."
 
+# Clean 200 Rewrite Routes for subpages
+[[redirects]]
+  from = "/music"
+  to = "/music.html"
+  status = 200
+
+[[redirects]]
+  from = "/movement"
+  to = "/movement.html"
+  status = 200
+
+[[redirects]]
+  from = "/tour"
+  to = "/tour.html"
+  status = 200
+
+[[redirects]]
+  from = "/merch"
+  to = "/merch.html"
+  status = 200
+
+[[redirects]]
+  from = "/press"
+  to = "/press.html"
+  status = 200
+
+[[redirects]]
+  from = "/booking"
+  to = "/booking.html"
+  status = 200
+
+# Global Security & Cache Headers
 [[headers]]
   for = "/*"
   [headers.values]
@@ -8,3 +40,13 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Content-Type = "text/css; charset=utf-8"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Content-Type = "application/javascript; charset=utf-8"
