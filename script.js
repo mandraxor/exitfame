@@ -89,9 +89,10 @@
       });
     }
 
-    // Particle Classes
+    // Particle Classes (Mobile Adaptive Particle Count)
     const particles = [];
-    const particleCount = Math.min(Math.floor(window.innerWidth / 24), 50);
+    const isMobileDevice = window.innerWidth < 768;
+    const particleCount = isMobileDevice ? 22 : Math.min(Math.floor(window.innerWidth / 24), 50);
 
     class EmberParticle {
       constructor() {
@@ -101,7 +102,7 @@
       reset(initial = false) {
         this.x = Math.random() * width;
         this.y = initial ? Math.random() * height : height + 20;
-        this.size = Math.random() * 3.5 + 1.2;
+        this.size = Math.random() * 3.2 + 1.0;
         this.speedY = Math.random() * 0.55 + 0.2;
         this.speedX = (Math.random() - 0.5) * 0.35;
         this.opacity = Math.random() * 0.65 + 0.2;
@@ -135,15 +136,30 @@
       particles.push(new EmberParticle());
     }
 
+    // Touch Support for Mobile Lighting & Interaction
+    window.addEventListener('touchstart', (e) => {
+      if (e.touches.length > 0) {
+        targetMouseX = e.touches[0].clientX;
+        targetMouseY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 0) {
+        targetMouseX = e.touches[0].clientX;
+        targetMouseY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
     function animateEmbers() {
       ctx.clearRect(0, 0, width, height);
 
-      // Smooth mouse movement interpolation
+      // Smooth mouse/touch movement interpolation
       mouseX += (targetMouseX - mouseX) * 0.05;
       mouseY += (targetMouseY - mouseY) * 0.05;
 
       // Ambient radial lighting
-      const radGrad = ctx.createRadialGradient(mouseX, mouseY, 10, mouseX, mouseY, 400);
+      const radGrad = ctx.createRadialGradient(mouseX, mouseY, 10, mouseX, mouseY, isMobileDevice ? 240 : 400);
       radGrad.addColorStop(0, 'rgba(212, 175, 55, 0.04)');
       radGrad.addColorStop(0.6, 'rgba(211, 47, 47, 0.015)');
       radGrad.addColorStop(1, 'transparent');
@@ -766,6 +782,12 @@ Never Go Back... we conquer the night.`
 
     if (subtotalEl) subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
     if (countEl) countEl.textContent = totalItems;
+    const navCartBadge = document.getElementById('nav-cart-count');
+    if (navCartBadge) navCartBadge.textContent = totalItems;
+    const drawerCartBadge = document.getElementById('drawer-cart-count');
+    if (drawerCartBadge) drawerCartBadge.textContent = totalItems;
+    const mobileCartBadge = document.getElementById('mobile-cart-badge');
+    if (mobileCartBadge) mobileCartBadge.textContent = totalItems;
   }
 
   function createCartDrawer() {
@@ -807,18 +829,26 @@ Never Go Back... we conquer the night.`
   };
 
   // Merch Filter Logic
-  window.filterMerch = function (cat) {
-    document.querySelectorAll('.merch-filter-btn').forEach(btn => btn.classList.remove('active'));
-    if (event && event.target) event.target.classList.add('active');
+  window.filterMerch = function (category = 'all') {
+    const buttons = document.querySelectorAll('.merch-filter-btn');
+    buttons.forEach(btn => {
+      const match = btn.textContent.toLowerCase().includes(category.toLowerCase()) || 
+                    (category === 'all' && btn.textContent.toLowerCase().includes('all'));
+      btn.classList.toggle('active', match);
+    });
 
-    document.querySelectorAll('.product-card').forEach(card => {
-      const tag = card.querySelector('.product-tag-float')?.textContent.trim().toUpperCase();
-      if (cat === 'all' || tag === cat.toUpperCase()) {
-        card.style.display = 'flex';
+    const products = document.querySelectorAll('.product-card');
+    products.forEach(p => {
+      const tag = (p.querySelector('.product-tag-float')?.textContent || '').toLowerCase();
+      const title = (p.getAttribute('data-name') || '').toLowerCase();
+      if (category === 'all' || tag.includes(category.toLowerCase()) || title.includes(category.toLowerCase())) {
+        p.style.display = 'flex';
       } else {
-        card.style.display = 'none';
+        p.style.display = 'none';
       }
     });
+
+    window.showToast(`🔍 Showing category: ${category.toUpperCase()}`);
   };
 
   /* ==========================================================================
@@ -910,14 +940,17 @@ Never Go Back... we conquer the night.`
 
   if (mobileNavBtn && mobileDrawer) {
     mobileNavBtn.addEventListener('click', () => {
-      mobileDrawer.classList.toggle('open');
-      mobileNavBtn.classList.toggle('open');
+      const isOpen = mobileDrawer.classList.toggle('active');
+      mobileDrawer.classList.toggle('open', isOpen);
+      mobileNavBtn.classList.toggle('open', isOpen);
+      document.body.classList.toggle('no-scroll', isOpen);
     });
 
     mobileDrawer.querySelectorAll('.mobile-link').forEach(link => {
       link.addEventListener('click', () => {
-        mobileDrawer.classList.remove('open');
+        mobileDrawer.classList.remove('active', 'open');
         mobileNavBtn.classList.remove('open');
+        document.body.classList.remove('no-scroll');
       });
     });
   }
