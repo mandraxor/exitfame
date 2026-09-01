@@ -1,7 +1,6 @@
 [build]
   publish = "."
 
-# Clean 200 Rewrite Routes for subpages
 [[redirects]]
   from = "/music"
   to = "/music.html"
@@ -32,7 +31,12 @@
   to = "/booking.html"
   status = 200
 
-# Global Security & Cache Headers
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  conditions = {Role = ["*"]}
+
 [[headers]]
   for = "/*"
   [headers.values]
