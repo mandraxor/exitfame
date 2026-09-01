@@ -1,0 +1,15 @@
+# OS Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Logs & temp
+*.log
+.system_generated/
+__pycache__/
+*.pyc
+
+# Local Netlify
+.netlify/

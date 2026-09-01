@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXIT FAME — Official Artist Portal | Never Go Back (NGB)</title>
+  <meta name="description" content="Official portal for Boston conscious rap artist, lyricist, and recovery advocate Exit Fame (Eric Henderson). Featured music videos, tour routing, and NGB movement.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Shopify SDK -->
+  <script src="https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.js"></script>
+</head>
+<body class="dark-theme">
+
+  <!-- Ambient Golden Ember Canvas Engine -->
+  <canvas id="ember-canvas"></canvas>
+  <div class="cursor-spotlight"></div>
+
+  <!-- Ambient Lighting Background Orbs -->
+  <div class="ambient-glow-bg">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <div class="grain-overlay"></div>
+
+  <!-- Main Header / Unified Navigation -->
+  <header class="main-header" id="navbar">
+    <div class="header-container">
+      <div class="brand-logo-img-wrapper">
+        <a href="index.html" class="brand-link" aria-label="Exit Fame Home">
+          <img src="exit fame logo.png" alt="Exit Fame Logo" class="nav-logo">
+        </a>
+      </div>
+
+      <nav class="nav-links" id="nav-menu">
+        <a href="index.html" class="nav-link active" aria-current="page"><span>00</span>Home</a>
+        <a href="music.html" class="nav-link"><span>01</span>Music</a>
+        <a href="movement.html" class="nav-link"><span>02</span>The Movement</a>
+        <a href="tour.html" class="nav-link"><span>03</span>Tour</a>
+        <a href="merch.html" class="nav-link"><span>04</span>Merch</a>
+        <a href="press.html" class="nav-link"><span>05</span>Press</a>
+        <a href="booking.html" class="nav-cta-btn">Book Now</a>
+        <button class="nav-link" onclick="openCart()" style="display:flex; align-items:center; gap:0.4rem; color:var(--accent-gold); font-weight:700;">
+          <span>🛍️</span> Bag (<span id="nav-cart-count">1</span>)
+        </button>
+      </nav>
+
+      <div class="header-actions-mobile">
+        <button class="mobile-nav-toggle" id="mobile-nav-btn" aria-label="Toggle Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-inner">
+      <div class="mobile-brand">
+        <img src="exit fame logo.png" alt="Exit Fame Logo" class="mobile-logo">
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="index.html" class="mobile-link active"><span class="m-num">00</span> Home Portal</a>
+        <a href="music.html" class="mobile-link"><span class="m-num">01</span> Sound &amp; Vision</a>
+        <a href="movement.html" class="mobile-link"><span class="m-num">02</span> The Movement</a>
+        <a href="tour.html" class="mobile-link"><span class="m-num">03</span> Tour Circuit</a>
+        <a href="merch.html" class="mobile-link"><span class="m-num">04</span> NGB Merch</a>
+        <a href="press.html" class="mobile-link"><span class="m-num">05</span> Press &amp; Awards</a>
+        <a href="booking.html" class="mobile-link cta-link"><span class="m-num">06</span> Direct Booking</a>
+      </nav>
+      <div class="mobile-drawer-footer">
+        <button class="btn btn-primary btn-block btn-sm" onclick="openCart(); document.getElementById('mobile-drawer').classList.remove('open');">
+          🛍️ View Bag (<span id="drawer-cart-count">1</span>)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section with 3D Vinyl Peek Card -->
+  <section class="hero-section" id="hero">
+    <div class="hero-background-wrapper">
+      <div class="hero-background" style="background-image: linear-gradient(to top, rgba(8,8,12,1) 5%, rgba(8,8,12,0.45) 55%, rgba(8,8,12,0.85) 100%), url('general images/29002.jpg');"></div>
+      <div class="hero-scanlines"></div>
+      <div class="hero-vignette"></div>
+    </div>
+    
+    <!-- Floating Gold BMA Award Badge -->
+    <div class="hero-badge-container reveal">
+      <div class="spinning-ring">
+        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="80" cy="80" r="72" fill="none" stroke="var(--accent-gold)" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"></circle>
+          <path id="badge-text-path" d="M 80,80 m -62,0 a 62,62 0 1,1 124,0 a 62,62 0 1,1 -124,0" fill="none"></path>
+          <text font-family="'DM Mono', monospace" font-size="8.5" fill="var(--accent-gold)" letter-spacing="3.5">
+            <textPath href="#badge-text-path">BOSTON MUSIC AWARD • HIP HOP ARTIST OF THE YEAR • </textPath>
+          </text>
+        </svg>
+      </div>
+      <div class="badge-center">
+        <span class="trophy-icon">🏆</span>
+        <span class="badge-year">BMA</span>
+      </div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <div class="hero-micro-pill reveal">
+        <span class="live-dot"></span>
+        <span>BOSTON CONSCIOUS HIP-HOP // NEVER GO BACK</span>
+      </div>
+
+      <h1 class="hero-title reveal" data-text="EXIT FAME">EXIT FAME</h1>
+      
+      <p class="hero-tagline reveal">"People may listen to songs, but they follow movements."</p>
+      <p class="hero-subtext reveal">Autobiographical conscious rap, raw street lyricism, and certified recovery coaching. From Roxbury and Dorchester roots to international concert arenas.</p>
+      
+      <div class="hero-actions reveal">
+        <a href="music.html" class="btn btn-primary btn-glow">
+          <span>Explore Music</span>
+          <svg viewBox="0 0 24 24" class="btn-arrow"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        </a>
+        <button class="btn btn-outline" onclick="openPreSaveModal()">
+          <span>Stream Permanent Stains</span>
+          <svg viewBox="0 0 24 24" class="btn-arrow"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" fill="currentColor"/></svg>
+        </button>
+      </div>
+
+      <!-- Quick Platform Strip -->
+      <div class="hero-socials reveal">
+        <span class="social-label">OFFICIAL PLATFORMS:</span>
+        <a href="https://open.spotify.com/artist/57qWHGzvGUTqCqvIQHj8eu" target="_blank" rel="noopener noreferrer" class="hero-social-pill">Spotify</a>
+        <a href="https://music.apple.com/us/artist/exitfame/1560749867" target="_blank" rel="noopener noreferrer" class="hero-social-pill">Apple Music</a>
+        <a href="https://www.youtube.com/@EXITFAME" target="_blank" rel="noopener noreferrer" class="hero-social-pill">YouTube</a>
+        <a href="https://www.instagram.com/exit_fame/" target="_blank" rel="noopener noreferrer" class="hero-social-pill">Instagram</a>
+        <a href="https://linktr.ee/exitfame" target="_blank" rel="noopener noreferrer" class="hero-social-pill">Linktree</a>
+      </div>
+
+      <!-- Quick Metrics Grid -->
+      <div class="hero-stats reveal">
+        <div class="stat-card glass-card tilt-card">
+          <span class="stat-num">800+</span>
+          <span class="stat-lbl">Fans Per Show</span>
+        </div>
+        <div class="stat-card glass-card tilt-card highlight-card">
+          <span class="stat-num">#7</span>
+          <span class="stat-lbl">iTunes Hip-Hop Debut</span>
+        </div>
+        <div class="stat-card glass-card tilt-card">
+          <span class="stat-num">6+ Yrs</span>
+          <span class="stat-lbl">Active Sobriety</span>
+        </div>
+        <div class="stat-card glass-card tilt-card">
+          <span class="stat-num">11</span>
+          <span class="stat-lbl">Countries Toured</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Continuous Ticker -->
+  <div class="ticker-container">
+    <div class="ticker-wrap">
+      <div class="ticker-item">🏆 BOSTON MUSIC AWARD WINNER</div>
+      <div class="ticker-item">•</div>
+      <div class="ticker-item">NEW ALBUM: PERMANENT STAINS OUT NOW</div>
+      <div class="ticker-item">•</div>
+      <div class="ticker-item">NEVER GO BACK (NGB) MOVEMENT</div>
+      <div class="ticker-item">•</div>
+      <div class="ticker-item">ONYX "SHUT 'EM DOWN" INTERNATIONAL TOUR 2026</div>
+      <div class="ticker-item">•</div>
+      <div class="ticker-item">🏆 BOSTON MUSIC AWARD WINNER</div>
+      <div class="ticker-item">•</div>
+      <div class="ticker-item">NEW ALBUM: PERMANENT STAINS OUT NOW</div>
+      <div class="ticker-item">•</div>
+      <div class="ticker-item">NEVER GO BACK (NGB) MOVEMENT</div>
+      <div class="ticker-item">•</div>
+      <div class="ticker-item">ONYX "SHUT 'EM DOWN" INTERNATIONAL TOUR 2026</div>
+      <div class="ticker-item">•</div>
+    </div>
+  </div>
+
+  <!-- Featured Sound & Vision Portal -->
+  <section class="section-container">
+    <div class="section-header reveal">
+      <div class="section-micro-badge">
+        <span class="badge-index">01</span>
+        <span class="badge-separator">//</span>
+        <span class="badge-title">FEATURED RELEASE</span>
+      </div>
+      <h2 class="section-title">Sound <span>&amp; Vision</span></h2>
+      <p class="section-lead">Watch the official cinematic visual for "Ghetto Stains" and stream the highest charting independent releases from Boston lyricist Exit Fame.</p>
+    </div>
+
+    <div class="music-grid">
+      <!-- Video Showcase -->
+      <div class="video-card glass-card tilt-card reveal">
+        <a href="https://www.youtube.com/watch?v=vSPYZOpDWD0" target="_blank" rel="noopener noreferrer" class="video-facade-link" aria-label="Watch Ghetto Stains on YouTube">
+          <div class="video-thumbnail-bg" style="background-image: linear-gradient(180deg, rgba(8,8,12,0.2) 0%, rgba(8,8,12,0.88) 100%), url('general images/29002.jpg');"></div>
+          <div class="play-button-overlay">
+            <div class="play-ripple"></div>
+            <svg viewBox="0 0 68 48" class="yt-play-svg"><path class="yt-play-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 c-2.93,.78-4.63,3.26-5.42,6.19C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79,-0.13,27.1-1.55c2.93,-0.78,4.64,-3.26,5.42,-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#d32f2f"/><polygon points="27,15 27,33 43,24" fill="#fff"/></svg>
+          </div>
+          <div class="video-duration-badge">3:18</div>
+        </a>
+        <div class="video-info">
+          <div class="video-meta-top">
+            <span class="badge badge-crimson">OFFICIAL MUSIC VIDEO</span>
+            <span class="video-director">Dir. Dom Bruno</span>
+          </div>
+          <h3>Exit Fame — Ghetto Stains (Official Video)</h3>
+          <p>Experience raw storytelling, Roxbury street poetry, and the visual weight of survival from his acclaimed album <em>Permanent Stains</em>.</p>
+          <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1rem;">
+            <a href="music.html" class="btn btn-sm btn-outline">
+              Full Music Catalog &rarr;
+            </a>
+            <button class="btn btn-sm btn-primary" onclick="openLyricsModal('Permanent Stains')">
+              Read Lyrics &amp; Credits
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top Tracks Teaser Deck -->
+      <div class="tracklist-card glass-card tilt-card reveal">
+        <div class="tracklist-header">
+          <div class="th-left">
+            <span class="th-badge">SPOTLIGHT TRACKS</span>
+            <h3>Permanent Stains &amp; Anthems</h3>
+          </div>
+          <a href="music.html" class="th-hint" style="color: var(--accent-gold); font-weight: 600;">View All &rarr;</a>
+        </div>
+
+        <div class="playlist-container">
+          <div class="playlist-track active" data-index="0">
+            <div class="track-left">
+              <span class="track-number">01</span>
+              <button class="track-play-trigger" aria-label="Play Track">
+                <svg viewBox="0 0 24 24" class="t-play-icon"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                <span class="t-equalizer"><span></span><span></span><span></span></span>
+              </button>
+            </div>
+            <div class="track-info-row">
+              <span class="track-title">Too Many Times (Remix) <span class="track-feature">[feat. Millyz]</span></span>
+              <span class="track-tag">Boston Crossover Hit</span>
+            </div>
+            <button class="btn-sm btn-outline" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;" onclick="event.stopPropagation(); openLyricsModal('Too Many Times (Remix)');">Lyrics</button>
+            <span class="track-duration">3:58</span>
+          </div>
+
+          <div class="playlist-track" data-index="1">
+            <div class="track-left">
+              <span class="track-number">02</span>
+              <button class="track-play-trigger" aria-label="Play Track">
+                <svg viewBox="0 0 24 24" class="t-play-icon"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                <span class="t-equalizer"><span></span><span></span><span></span></span>
+              </button>
+            </div>
+            <div class="track-info-row">
+              <span class="track-title">Last Shall Be First</span>
+              <span class="track-tag tag-bma">BMA Winner Track</span>
+            </div>
+            <button class="btn-sm btn-outline" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;" onclick="event.stopPropagation(); openLyricsModal('Last Shall Be First');">Lyrics</button>
+            <span class="track-duration">3:42</span>
+          </div>
+
+          <div class="playlist-track" data-index="2">
+            <div class="track-left">
+              <span class="track-number">03</span>
+              <button class="track-play-trigger" aria-label="Play Track">
+                <svg viewBox="0 0 24 24" class="t-play-icon"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                <span class="t-equalizer"><span></span><span></span><span></span></span>
+              </button>
+            </div>
+            <div class="track-info-row">
+              <span class="track-title">Permanent Stains</span>
+              <span class="track-tag">Title Track // iTunes #7</span>
+            </div>
+            <button class="btn-sm btn-outline" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;" onclick="event.stopPropagation(); openLyricsModal('Permanent Stains');">Lyrics</button>
+            <span class="track-duration">4:15</span>
+          </div>
+        </div>
+
+        <div class="streaming-platforms-hub">
+          <span class="sph-label">STREAM NOW ON:</span>
+          <div class="sph-links">
+            <a href="https://open.spotify.com/artist/57qWHGzvGUTqCqvIQHj8eu" target="_blank" rel="noopener noreferrer" class="platform-chip chip-spotify">Spotify</a>
+            <a href="https://music.apple.com/us/artist/exitfame/1560749867" target="_blank" rel="noopener noreferrer" class="platform-chip chip-apple">Apple Music</a>
+            <a href="https://soundcloud.com/exitfame" target="_blank" rel="noopener noreferrer" class="platform-chip chip-soundcloud">SoundCloud</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Onyx World Tour Spotlight Banner -->
+  <section class="section-container" style="padding-top: 0;">
+    <div class="tour-headline-card glass-card tilt-card reveal">
+      <div class="th-badge-row">
+        <span class="badge badge-gold">2026 WORLD TOUR</span>
+        <span class="th-circuit">11 COUNTRIES · DIRECT SUPPORT</span>
+      </div>
+      <h3>Onyx "Shut 'Em Down" International Tour</h3>
+      <p>Exit Fame recently completed high-octane stage dates across Germany alongside <strong>Onyx, Busta Rhymes, KRS-One, Ben Shorr, M-DOT, and EL9SIX</strong>. View upcoming domestic and international tour dates.</p>
+      <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="tour.html" class="btn btn-primary btn-sm">View Tour Dates &amp; VIP Passes</a>
+        <a href="booking.html" class="btn btn-outline btn-sm">Book Exit Fame for Live Venues</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIP Community / Recovery Newsletter Strip -->
+  <section class="section-container" style="padding-top: 0;">
+    <div class="vip-strip reveal">
+      <span class="badge badge-gold">NEVER GO BACK COMMUNITY</span>
+      <h2 style="font-family: var(--font-display); font-size: 2.2rem; margin: 0.5rem 0;">Join the VIP Movement</h2>
+      <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 0.95rem;">Receive private access to unreleased demos, direct tour presale codes, and certified recovery coaching updates from Exit Fame.</p>
+      <form class="vip-form-row" onsubmit="handleVipSubmit(event)">
+        <input type="email" id="vip-email-input" class="vip-input" required placeholder="Enter your email address...">
+        <button type="submit" class="btn btn-primary btn-glow">Join VIP</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Comprehensive 5-Column EPK & Management Footer Hub -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-columns-grid">
+        <div class="footer-col brand-col">
+          <img src="exit fame logo.png" alt="Exit Fame Logo" class="footer-logo">
+          <p class="footer-statement">"Built Here. Built Different."</p>
+          <p class="footer-bio-snippet">Boston conscious hip-hop artist &amp; certified recovery advocate Eric Henderson (Exit Fame). Turning survival into sound across international stages.</p>
+        </div>
+
+        <div class="footer-col">
+          <h5 class="f-title">NAVIGATION</h5>
+          <ul class="f-links">
+            <li><a href="index.html">00 // Home Portal</a></li>
+            <li><a href="music.html">01 // Music &amp; Vision</a></li>
+            <li><a href="movement.html">02 // The Movement</a></li>
+            <li><a href="tour.html">03 // Tour Circuit</a></li>
+            <li><a href="merch.html">04 // NGB Apparel</a></li>
+            <li><a href="press.html">05 // Press &amp; Awards</a></li>
+            <li><a href="booking.html">06 // Booking</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 class="f-title">STREAMING &amp; DSPs</h5>
+          <ul class="f-links">
+            <li><a href="https://open.spotify.com/artist/57qWHGzvGUTqCqvIQHj8eu" target="_blank" rel="noopener noreferrer">Spotify Official</a></li>
+            <li><a href="https://music.apple.com/us/artist/exitfame/1560749867" target="_blank" rel="noopener noreferrer">Apple Music</a></li>
+            <li><a href="https://soundcloud.com/exitfame" target="_blank" rel="noopener noreferrer">SoundCloud</a></li>
+            <li><a href="https://www.youtube.com/@EXITFAME" target="_blank" rel="noopener noreferrer">YouTube Channel</a></li>
+            <li><a href="https://linktr.ee/exitfame" target="_blank" rel="noopener noreferrer">Linktree Hub</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 class="f-title">OFFICIAL CONTACTS</h5>
+          <div class="f-contact-block">
+            <span class="fc-label">MANAGEMENT:</span>
+            <a href="mailto:exitfamemgmt@pm.me" class="fc-val">exitfamemgmt@pm.me</a>
+          </div>
+          <div class="f-contact-block">
+            <span class="fc-label">BOOKING:</span>
+            <a href="mailto:exitfamemgmt@gmail.com" class="fc-val">exitfamemgmt@gmail.com</a>
+          </div>
+          <div class="f-contact-block">
+            <span class="fc-label">HEADQUARTERS:</span>
+            <span class="fc-val">Boston, MA · United States</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5 class="f-title">VERIFIED SOCIALS</h5>
+          <div class="footer-socials-grid">
+            <a href="https://www.instagram.com/exit_fame/" target="_blank" rel="noopener noreferrer" title="Instagram" class="social-icon-btn">
+              <svg viewBox="0 0 24 24" class="social-svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" fill="currentColor"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100068135989438" target="_blank" rel="noopener noreferrer" title="Facebook" class="social-icon-btn">
+              <svg viewBox="0 0 24 24" class="social-svg"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3v3h-3v6.8c4.56-.93 8-4.96 8-9.8z" fill="currentColor"/></svg>
+            </a>
+            <a href="https://x.com/EXIT_FAME" target="_blank" rel="noopener noreferrer" title="Twitter / X" class="social-icon-btn">
+              <svg viewBox="0 0 24 24" class="social-svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@EXITFAME" target="_blank" rel="noopener noreferrer" title="YouTube" class="social-icon-btn">
+              <svg viewBox="0 0 24 24" class="social-svg"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="currentColor"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Copyright Strip -->
+      <div class="footer-bottom-strip">
+        <p class="f-copy">&copy; 2026 Exit Fame (Eric Henderson). All Rights Reserved.</p>
+        <p class="f-sub">Never Go Back (NGB) Movement · Boston, MA</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PERSISTENT DOCKED BOTTOM AUDIO PLAYER BAR WITH EQUALIZER & VISUALIZER -->
+  <aside class="persistent-audio-dock" id="persistent-player-dock" aria-label="Persistent Audio Player">
+    <div class="dock-container">
+      
+      <!-- Track Meta (Left) -->
+      <div class="dock-meta">
+        <div class="dock-art-wrap">
+          <img src="charts/IMG_1091.PNG" alt="Track Artwork" id="dock-album-art" class="dock-art">
+          <div class="dock-vinyl" id="dock-vinyl-disc"></div>
+        </div>
+        <div class="dock-info">
+          <span class="dock-title" id="dock-track-title">Too Many Times (Remix) [feat. Millyz]</span>
+          <span class="dock-artist">Exit Fame · <span class="dock-badge-tag" id="dock-track-tag">Boston Crossover Hit</span></span>
+        </div>
+      </div>
+
+      <!-- Audio Controls & Scrubber (Center) -->
+      <div class="dock-controls-center">
+        <div class="dock-btns">
+          <button class="dock-btn-icon" id="dock-btn-prev" aria-label="Previous Track">
+            <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z" fill="currentColor"/></svg>
+          </button>
+          
+          <button class="dock-play-btn" id="dock-btn-play" aria-label="Play / Pause">
+            <svg viewBox="0 0 24 24" id="dock-play-svg"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 24 24" id="dock-pause-svg" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" fill="currentColor"/></svg>
+          </button>
+          
+          <button class="dock-btn-icon" id="dock-btn-next" aria-label="Next Track">
+            <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" fill="currentColor"/></svg>
+          </button>
+        </div>
+
+        <div class="dock-scrubber-row">
+          <span class="dock-time" id="dock-time-elapsed">0:00</span>
+          <div class="dock-progress-track" id="dock-progress-track">
+            <div class="dock-progress-fill" id="dock-progress-fill"></div>
+            <div class="dock-progress-handle" id="dock-progress-handle"></div>
+          </div>
+          <span class="dock-time" id="dock-time-total">3:58</span>
+        </div>
+      </div>
+
+      <!-- Visualizer & Quick Platform Actions (Right) -->
+      <div class="dock-actions-right">
+        <div class="player-visualizer-wrap">
+          <canvas id="player-visualizer" class="visualizer-canvas" width="100" height="28"></canvas>
+        </div>
+        <button class="dock-dsp-btn" onclick="openLyricsModal()" title="View Lyrics &amp; Credits">
+          <span style="font-size: 0.75rem; font-weight: 700;">LYRICS</span>
+        </button>
+        <button class="dock-dsp-btn" onclick="openCart()" title="View Bag">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2"/><path d="M16 10a4 4 0 0 1-8 0" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

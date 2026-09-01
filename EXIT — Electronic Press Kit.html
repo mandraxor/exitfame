@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)file:///C:/Users/lance/Downloads/exit_fame_epk.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EXIT — Electronic Press Kit</title>
+<link href="./EXIT — Electronic Press Kit_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --black: #050505;
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --white: #F5F0E8;
+    --red: #C0392B;
+    --gray: #8A8A8A;
+    --dark: #111010;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Mono', monospace;
+    overflow-x: hidden;
+    cursor: crosshair;
+  }
+
+  /* ── GRAIN OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 4rem 3rem;
+    position: relative;
+    overflow: hidden;
+    background: var(--black);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 30%, rgba(201,168,76,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 10% 80%, rgba(192,57,43,0.08) 0%, transparent 50%),
+      linear-gradient(180deg, #050505 0%, #0a0906 100%);
+  }
+
+  .hero-scanlines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.15) 2px,
+      rgba(0,0,0,0.15) 4px
+    );
+    pointer-events: none;
+  }
+
+  .award-badge {
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    width: 160px;
+    height: 160px;
+    animation: badgeSpin 20s linear infinite, fadeIn 1s ease 0.5s both;
+  }
+
+  .award-badge svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @keyframes badgeSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .award-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    animation: none;
+  }
+
+  .award-badge-wrap {
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    width: 160px;
+    height: 160px;
+    animation: fadeIn 1s ease 0.5s both;
+  }
+
+  .award-ring {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    animation: badgeSpin 20s linear infinite;
+  }
+
+  .award-inner {
+    position: absolute;
+    inset: 18px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(5,5,5,0.95);
+    animation: badgeSpin 20s linear infinite reverse;
+  }
+
+  .award-inner .trophy { font-size: 1.5rem; line-height: 1; }
+  .award-inner .award-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    line-height: 1.2;
+    margin-top: 4px;
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    opacity: 0;
+    animation: slideUp 0.8s ease 0.2s forwards;
+  }
+
+  .hero-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(7rem, 20vw, 18rem);
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    position: relative;
+    opacity: 0;
+    animation: slideUp 0.8s ease 0.4s forwards;
+  }
+
+  .hero-name span {
+    -webkit-text-stroke: 1px var(--gold);
+    color: transparent;
+  }
+
+  .hero-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: var(--gray);
+    margin-top: 1.5rem;
+    max-width: 500px;
+    line-height: 1.5;
+    opacity: 0;
+    animation: slideUp 0.8s ease 0.6s forwards;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 3rem;
+    opacity: 0;
+    animation: slideUp 0.8s ease 0.8s forwards;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .stat-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--gray);
+    text-transform: uppercase;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    color: var(--gray);
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeIn 1s ease 1.5s forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(0.7); }
+    50% { opacity: 1; transform: scaleY(1); }
+  }
+
+  /* ── AWARD SECTION ── */
+  .award-section {
+    background: var(--gold);
+    padding: 5rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .award-section::before {
+    content: '★';
+    position: absolute;
+    right: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20rem;
+    color: rgba(0,0,0,0.06);
+    font-family: 'Bebas Neue', sans-serif;
+    line-height: 1;
+  }
+
+  .award-announce {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1000px;
+  }
+
+  .award-icon-big { font-size: 6rem; line-height: 1; }
+
+  .award-text-block .label {
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    color: rgba(5,5,5,0.6);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .award-text-block h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    color: var(--black);
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+  }
+
+  .award-text-block p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: rgba(5,5,5,0.7);
+    margin-top: 1rem;
+    max-width: 500px;
+  }
+
+  /* ── CONTENT SECTIONS ── */
+  .section {
+    padding: 6rem 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .section-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 6rem;
+    color: rgba(201,168,76,0.12);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
+
+  .section-title span { color: var(--gold); }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, var(--gold), transparent);
+    margin: 6rem 0;
+    opacity: 0.3;
+  }
+
+  /* ── BIO ── */
+  .bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .bio-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--white);
+  }
+
+  .bio-main .drop-cap::first-letter {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5.5rem;
+    float: left;
+    line-height: 0.75;
+    margin-right: 0.1em;
+    margin-top: 0.1em;
+    color: var(--gold);
+  }
+
+  .bio-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  .pull-quote {
+    border-left: 3px solid var(--gold);
+    padding-left: 1.5rem;
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--white);
+  }
+
+  .pull-quote cite {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    display: block;
+    margin-top: 0.75rem;
+  }
+
+  /* ── OPPORTUNITIES GRID ── */
+  .opps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5px;
+    background: rgba(201,168,76,0.2);
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .opp-card {
+    background: var(--dark);
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s ease;
+  }
+
+  .opp-card:hover { background: #161410; }
+
+  .opp-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--gold);
+    transition: height 0.4s ease;
+  }
+
+  .opp-card:hover::before { height: 100%; }
+
+  .opp-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+
+  .opp-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .opp-desc {
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: var(--gray);
+    letter-spacing: 0.02em;
+  }
+
+  .opp-tag {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 0.3rem 0.7rem;
+  }
+
+  /* ── REVENUE / PROJECTIONS ── */
+  .revenue-section {
+    background: linear-gradient(135deg, #0d0b08 0%, #0a0906 100%);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 4rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .revenue-section::after {
+    content: '$';
+    position: absolute;
+    right: -1rem;
+    bottom: -2rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20rem;
+    color: rgba(201,168,76,0.04);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .revenue-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .revenue-item { text-align: center; }
+
+  .revenue-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 0.5rem;
+  }
+
+  .revenue-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .revenue-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-top: 0.4rem;
+  }
+
+  /* ── NGB CLOTHING ── */
+  .ngb-banner {
+    background: var(--red);
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ngb-banner::before {
+    content: 'NGB';
+    position: absolute;
+    left: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14rem;
+    color: rgba(0,0,0,0.15);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .ngb-text { position: relative; z-index: 1; }
+
+  .ngb-text h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    letter-spacing: 0.08em;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .ngb-text p {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.7);
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .ngb-pill {
+    background: var(--white);
+    color: var(--red);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+    padding: 0.75rem 2rem;
+    position: relative;
+    z-index: 1;
+    white-space: nowrap;
+  }
+
+  /* ── MISSION ── */
+  .mission-block {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 5rem 0;
+  }
+
+  .mission-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 6rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: rgba(201,168,76,0.15);
+  }
+
+  .mission-label span { color: var(--gold); display: block; }
+
+  .mission-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: rgba(245,240,232,0.85);
+  }
+
+  .mission-text strong {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--dark);
+    border-top: 1px solid rgba(201,168,76,0.2);
+    padding: 5rem 3rem;
+    text-align: center;
+  }
+
+  .contact-section h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-section h2 span { color: var(--gold); }
+
+  .contact-roles {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-role {
+    text-align: center;
+  }
+
+  .contact-role .role-title {
+    font-size: 0.6rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .contact-role .role-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--white);
+  }
+
+  .footer-bar {
+    background: var(--black);
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--gray);
+    text-transform: uppercase;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── TICKER ── */
+  .ticker-wrap {
+    background: var(--gold);
+    overflow: hidden;
+    padding: 0.6rem 0;
+    white-space: nowrap;
+  }
+
+  .ticker {
+    display: inline-flex;
+    animation: ticker 25s linear infinite;
+    gap: 0;
+  }
+
+  .ticker span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    color: var(--black);
+    padding: 0 2rem;
+  }
+
+  .ticker span.dot {
+    color: rgba(0,0,0,0.4);
+    padding: 0;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .bio-grid { grid-template-columns: 1fr; }
+    .revenue-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .mission-block { grid-template-columns: 1fr; gap: 2rem; }
+    .award-announce { grid-template-columns: 1fr; }
+    .contact-roles { gap: 2rem; }
+    .award-badge-wrap { width: 100px; height: 100px; top: 1.5rem; right: 1.5rem; }
+    .award-ring { width: 100px; height: 100px; }
+    .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-scanlines"></div>
+
+  <!-- Spinning Award Badge -->
+  <div class="award-badge-wrap">
+    <div class="award-ring">
+      <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80" cy="80" r="74" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-dasharray="4 3"></circle>
+        <text font-family="Bebas Neue, sans-serif" font-size="9" fill="#C9A84C" letter-spacing="3">
+          <textpath href="#circle-path">BOSTON MUSIC AWARD · NEW HIP HOP ARTIST · 2024 ·</textpath>
+        </text>
+        <defs>
+          <path id="circle-path" d="M 80,80 m -58,0 a 58,58 0 1,1 116,0 a 58,58 0 1,1 -116,0"></path>
+        </defs>
+      </svg>
+    </div>
+    <div class="award-inner">
+      <span class="trophy">🏆</span>
+      <div class="award-title">WINNER<br>BMA 2024</div>
+    </div>
+  </div>
+
+  <div style="position:relative;z-index:2;">
+    <p class="eyebrow">Electronic Press Kit · 2024</p>
+    <h1 class="hero-name">EX<span>IT</span></h1>
+    <p class="hero-tagline">From the streets to the stage — a voice built for those who were told they'd never make it out.</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number">800+</span>
+        <span class="stat-label">Fans Per Show</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">1×</span>
+        <span class="stat-label">Boston Music Award</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">∞</span>
+        <span class="stat-label">Impact</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>🏆 Boston Music Award — New Hip Hop Artist of the Year</span>
+    <span class="dot">✦</span>
+    <span>Never Go Back Tour</span>
+    <span class="dot">✦</span>
+    <span>800–1000 Fans Per Show</span>
+    <span class="dot">✦</span>
+    <span>Exit Fame</span>
+    <span class="dot">✦</span>
+    <span>🏆 Boston Music Award — New Hip Hop Artist of the Year</span>
+    <span class="dot">✦</span>
+    <span>Never Go Back Tour</span>
+    <span class="dot">✦</span>
+    <span>800–1000 Fans Per Show</span>
+    <span class="dot">✦</span>
+    <span>Exit Fame</span>
+    <span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- AWARD ANNOUNCEMENT -->
+<div class="award-section reveal visible">
+  <div class="award-announce">
+    <div class="award-icon-big">🏆</div>
+    <div class="award-text-block">
+      <p class="label">Boston Music Awards · 2024 Winner</p>
+      <h2>New Hip Hop<br>Artist of the Year</h2>
+      <p>Exit takes the crown — recognized by Boston's most prestigious music community for raw talent, authenticity, and an undeniable rise from the ground up.</p>
+    </div>
+  </div>
+</div>
+
+<!-- BIO -->
+<div class="section reveal visible">
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <h2 class="section-title">The <span>Artist</span></h2>
+  </div>
+  <div class="bio-grid">
+    <div class="bio-main">
+      <p class="drop-cap">Exit is not a stage name — it's a declaration. A Boston-bred hip hop artist who turned survival into a sound, Exit's music carries the weight of real experience and the momentum of someone who refused to stay stuck. Commanding crowds of 800 to 1,000 fans per show, Exit has built a loyal following that doesn't just listen — they move.</p>
+      <br>
+      <p>With the 2024 Boston Music Award for New Hip Hop Artist of the Year now in hand, Exit steps into the next chapter armed with industry recognition, community trust, and a vision that reaches far beyond the stage.</p>
+    </div>
+    <div class="bio-aside">
+      <div class="pull-quote">
+        <p>"Exit doesn't just make music — he makes movements. Every verse is a blueprint for getting out."</p>
+        <cite>— Boston Music Awards, 2024</cite>
+      </div>
+      <div style="margin-top:1rem;">
+        <p style="font-size:0.7rem;letter-spacing:0.15em;color:var(--gray);text-transform:uppercase;margin-bottom:0.75rem;">Genre</p>
+        <p style="font-family:&#39;Playfair Display&#39;,serif;font-size:1rem;color:var(--white);">Hip Hop · Conscious Rap · Street Gospel</p>
+        <p style="font-size:0.7rem;letter-spacing:0.15em;color:var(--gray);text-transform:uppercase;margin-top:1.5rem;margin-bottom:0.75rem;">Based In</p>
+        <p style="font-family:&#39;Playfair Display&#39;,serif;font-size:1rem;color:var(--white);">Boston, Massachusetts</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- MISSION -->
+<div class="section reveal visible">
+  <div class="mission-block">
+    <div class="mission-label">
+      WHY<br><span>IT MATTERS</span>
+    </div>
+    <div class="mission-text">
+      Exit's reach extends far beyond venues and playlists. His story resonates powerfully in <strong>recovery centers, group homes, Rikers Island, and schools</strong> — spaces where young people need proof that another path exists. The message of prevention through art is not just compelling; it's <strong>massive in scope</strong>, and Exit is positioned to be that voice at scale. Colleges, youth programs, and institutional partners represent an enormous and largely untapped opportunity — one Exit is ready to take.
+    </div>
+  </div>
+</div>
+
+<!-- OPPORTUNITIES -->
+<div style="background:var(--dark);padding:6rem 0;">
+  <div class="section reveal visible" style="padding-top:0;padding-bottom:0;">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">Key <span>Opportunities</span></h2>
+    </div>
+    <div class="opps-grid">
+      <div class="opp-card">
+        <span class="opp-icon">🏥</span>
+        <div class="opp-title">Recovery Centers &amp; Homes</div>
+        <p class="opp-desc">Exit's journey speaks directly to those in recovery. Partnerships with rehab centers and halfway houses offer powerful platform potential and life-changing community impact.</p>
+        <span class="opp-tag">Prevention · Outreach</span>
+      </div>
+      <div class="opp-card">
+        <span class="opp-icon">⚖️</span>
+        <div class="opp-title">Rikers Island</div>
+        <p class="opp-desc">Bringing authentic hip hop into correctional facilities as a force for rehabilitation and hope. Exit's credibility makes him uniquely positioned for this work.</p>
+        <span class="opp-tag">Social Impact</span>
+      </div>
+      <div class="opp-card">
+        <span class="opp-icon">🏫</span>
+        <div class="opp-title">Schools &amp; Colleges</div>
+        <p class="opp-desc">From high school assemblies to campus performances, Exit's story of perseverance connects with young audiences and opens doors to an untapped speaking &amp; performance circuit.</p>
+        <span class="opp-tag">Education · Performance</span>
+      </div>
+      <div class="opp-card">
+        <span class="opp-icon">🎤</span>
+        <div class="opp-title">Live Venues — Las Vegas</div>
+        <p class="opp-desc">Actively pursuing venue invitations, bookings, and contracts in Las Vegas — bringing the energy of 800–1,000 fans per show to one of the world's premier entertainment markets.</p>
+        <span class="opp-tag">Live · Touring</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- NGB CLOTHING -->
+<div class="section reveal visible" style="padding-bottom:2rem;">
+  <div class="section-header">
+    <span class="section-number">03</span>
+    <h2 class="section-title">Brand <span>Extension</span></h2>
+  </div>
+</div>
+<div class="ngb-banner reveal visible">
+  <div class="ngb-text">
+    <h3>Never Go Back<br>Clothing Line</h3>
+    <p>Wearable philosophy · NGB Tour Merch · Street to Stage</p>
+  </div>
+  <div class="ngb-pill">NGB TOUR →</div>
+</div>
+<div class="section reveal visible" style="padding-top:2rem;padding-bottom:2rem;">
+  <p style="font-family:&#39;Playfair Display&#39;,serif;font-size:1.05rem;line-height:1.8;color:rgba(245,240,232,0.75);max-width:650px;">
+    The <em>Never Go Back</em> clothing line is more than merch — it's a manifesto. Tied directly to Exit's touring and brand identity, NGB creates a lifestyle extension that deepens fan loyalty and opens new revenue streams beyond music.
+  </p>
+</div>
+
+<!-- PROJECTIONS -->
+<div class="section reveal visible" style="padding-top:0;">
+  <div class="section-header">
+    <span class="section-number">04</span>
+    <h2 class="section-title">Revenue <span>Streams</span></h2>
+  </div>
+  <div class="revenue-section">
+    <div class="revenue-grid">
+      <div class="revenue-item">
+        <div class="revenue-label">Royalty Revenue</div>
+        <div class="revenue-value">↑</div>
+        <div class="revenue-sub">Projections in development<br><em>— Gabbi</em></div>
+      </div>
+      <div class="revenue-item">
+        <div class="revenue-label">Live Show Capacity</div>
+        <div class="revenue-value">1K</div>
+        <div class="revenue-sub">800–1,000 fans<br>per performance</div>
+      </div>
+      <div class="revenue-item">
+        <div class="revenue-label">Venue Pipeline</div>
+        <div class="revenue-value">LV</div>
+        <div class="revenue-sub">Las Vegas contracts<br>in progress — <em>Chrissy</em></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section reveal visible">
+  <p style="font-size:0.65rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;">Book · Partner · Connect</p>
+  <h2>Work With <span>Exit</span></h2>
+  <p style="font-family:&#39;Playfair Display&#39;,serif;font-style:italic;font-size:1.05rem;color:var(--gray);margin-top:0.75rem;">For bookings, partnerships, and press inquiries</p>
+  <div class="contact-roles">
+    <div class="contact-role">
+      <div class="role-title">Management</div>
+      <div class="role-name">Chrissy</div>
+      <div style="font-size:0.65rem;color:var(--gray);margin-top:0.3rem;letter-spacing:0.1em;">Projections · Venue Bookings · LV Contracts</div>
+    </div>
+    <div class="contact-role">
+      <div class="role-title">Licensing &amp; Royalties</div>
+      <div class="role-name">Gabbi</div>
+      <div style="font-size:0.65rem;color:var(--gray);margin-top:0.3rem;letter-spacing:0.1em;">Royalty Revenue Projections</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer-bar">
+  <span>Exit Fame · EPK 2024</span>
+  <span>🏆 Boston Music Award — New Hip Hop Artist of the Year</span>
+  <span>Never Go Back</span>
+</div>
+
+<script>
+  // Intersection Observer for scroll reveals
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+
+</body></html>
