@@ -1,6 +1,6 @@
 # Shopify Buy Button Integration & Hand-off Guide
 
-This guide outlines how the Shopify Buy Button SDK has been integrated into the Exit Fame artist website, and explains how your development team can configure your live Shopify store credentials to take the shop live.
+This guide outlines how the Shopify Buy Button SDK has been integrated into the EXITFAME artist website, and explains how your development team can configure your live Shopify store credentials to take the shop live.
 
 ---
 
@@ -47,7 +47,7 @@ The Storefront API Access Token is a public token used to retrieve products, col
 1. Log in to your **Shopify Admin Panel**.
 2. Go to **Settings** (bottom left) > **Apps and sales channels**.
 3. Click **Develop apps**.
-4. Click **Create an app** (give it a name like "Exit Fame Website Integration").
+4. Click **Create an app** (give it a name like "EXITFAME Website Integration").
 5. Under **Configuration**, click **Configure Storefront API scopes**.
 6. Check the permissions for **unauthenticated_read_product_listings** (and other read scopes as needed). Click **Save**.
 7. Go to the **API credentials** tab, click **Install app**, and copy the **Storefront API access token**.

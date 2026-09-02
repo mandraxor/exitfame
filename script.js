@@ -1,5 +1,5 @@
 /**
- * EXIT FAME — MAIN APPLICATION, AUDIO ENGINE, MOTION & E-COMMERCE SCRIPT
+ * EXITFAME — MAIN APPLICATION, AUDIO ENGINE, MOTION & E-COMMERCE SCRIPT
  * Version 3.0: TRiSTAR-Grade Luxury Interactive Suite
  * Features:
  *  - Floating Golden Embers & Urban Dust Canvas Engine
@@ -512,14 +512,14 @@
       album: "Permanent Stains (Deluxe)",
       producer: "Statik Selektah & Leedz",
       writers: "Eric Henderson, Millyz",
-      copyright: "© 2026 Exit Fame | ℗ Never Go Back LLC",
-      lyrics: `[Intro: Exit Fame]
+      copyright: "© 2026 EXITFAME | ℗ Never Go Back LLC",
+      lyrics: `[Intro: EXITFAME]
 Yeah... Roxbury to Dorchester, you know what it is.
 Never Go Back. Boston in the building.
 Shoutout Millyz on the assist.
 We walked through the fire to get here... listen.
 
-[Verse 1: Exit Fame]
+[Verse 1: EXITFAME]
 Counted out too many times, left for dead in the rain
 Turned the struggle to a podium, baptized in the pain
 From the cold street corners where the sirens never cease
@@ -529,7 +529,7 @@ Shed the old moniker, left Fame Flynt in the past
 Six years active sober, keep the vision crystal clear
 Every word is a lifeline for the ones living in fear.
 
-[Chorus: Exit Fame & Millyz]
+[Chorus: EXITFAME & Millyz]
 Too many times they said I wouldn't make it out
 Too many nights filled with sorrow, fear, and doubt
 Now we standing at the summit, watch the banners rise
@@ -544,15 +544,15 @@ Now we touring the world, washing away the stains!
 [Outro]
 Permanent Stains.
 Never Go Back.
-Exit Fame.`
+EXITFAME.`
     },
     "Last Shall Be First": {
       title: "Last Shall Be First",
       album: "Permanent Stains",
       producer: "The Arcitype",
       writers: "Eric Henderson",
-      copyright: "© 2024 Exit Fame | Boston Music Award Winning Record",
-      lyrics: `[Verse 1: Exit Fame]
+      copyright: "© 2024 EXITFAME | Boston Music Award Winning Record",
+      lyrics: `[Verse 1: EXITFAME]
 They put me at the bottom, wrote my name in the dust
 Forgot that diamonds get created under heavy disgust
 From Rikers Island cell blocks to the auditorium stage
@@ -562,15 +562,15 @@ I'm preaching conscious resurrection on every single page.
 The last shall be first, the broken made whole
 Never trade your integrity to satisfy a soul
 Built Here. Built Different. Stand tall in the light
-Exit Fame... turning darkness into flight.`
+EXITFAME... turning darkness into flight.`
     },
     "Permanent Stains": {
       title: "Permanent Stains",
       album: "Permanent Stains",
       producer: "Dom Bruno / Boston Sound Labs",
       writers: "Eric Henderson",
-      copyright: "© 2025 Exit Fame | iTunes Hip-Hop Debut #7",
-      lyrics: `[Verse 1: Exit Fame]
+      copyright: "© 2025 EXITFAME | iTunes Hip-Hop Debut #7",
+      lyrics: `[Verse 1: EXITFAME]
 Scars on my knuckles, memories on my sleeve
 They told me in the gutter that nobody would believe
 Debuted on the charts with the giants in the game
@@ -581,8 +581,8 @@ Proof that raw testimony carries more than a name.`
       album: "Permanent Stains",
       producer: "Leedz Edutainment",
       writers: "Eric Henderson",
-      copyright: "© 2025 Exit Fame | ℗ Never Go Back LLC",
-      lyrics: `[Verse 1: Exit Fame]
+      copyright: "© 2025 EXITFAME | ℗ Never Go Back LLC",
+      lyrics: `[Verse 1: EXITFAME]
 Cut the fake loyalty out of the circle today
 Can't let venomous whispers get in the way
 Conscious lyricism, raw truth over beats
@@ -593,8 +593,8 @@ Walking with purpose down these cold city streets.`
       album: "Permanent Stains",
       producer: "Arcitype Productions",
       writers: "Eric Henderson",
-      copyright: "© 2024 Exit Fame | ℗ Never Go Back LLC",
-      lyrics: `[Verse 1: Exit Fame]
+      copyright: "© 2024 EXITFAME | ℗ Never Go Back LLC",
+      lyrics: `[Verse 1: EXITFAME]
 Before I exit hell, I made a pact with the soul
 To bring the message back and make the broken youth whole
 From the ashes of the past to the glow of the mic
@@ -685,7 +685,7 @@ Never Go Back... we conquer the night.`
   };
 
   window.handlePreSaveAction = function (platform) {
-    window.showToast(`✨ Opening Exit Fame on ${platform}...`);
+    window.showToast(`✨ Opening EXITFAME on ${platform}...`);
     window.closePreSaveModal();
   };
 
@@ -861,7 +861,7 @@ Never Go Back... we conquer the night.`
 
     if (lightbox && imgEl) {
       imgEl.src = src;
-      if (capEl) capEl.textContent = caption || 'Exit Fame Chart Breakthrough Verification';
+      if (capEl) capEl.textContent = caption || 'EXITFAME Chart Breakthrough Verification';
       lightbox.classList.add('active');
       document.body.classList.add('no-scroll');
     }
